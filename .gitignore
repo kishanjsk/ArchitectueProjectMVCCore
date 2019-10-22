@@ -1,0 +1,25 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ArchitechtureProject
+/ArchitechtureProject/bin/Debug/netcoreapp2.2
+/ArchitechtureProject/obj
+/Architecture.BusinessLogic/bin/Debug/netcoreapp2.2
+/Architecture.BusinessLogic/obj
+/Architecture.Data/bin/Debug/netcoreapp2.2
+/Architecture.Data/obj
+/Architecture.Entities/bin/Debug/netcoreapp2.2
+/Architecture.Entities/obj
+/Architecture.Interface/bin/Debug/netcoreapp2.2
+/Architecture.Interface/obj
+/Architecture.Repository/bin/Debug/netcoreapp2.2
+/Architecture.Repository/obj
+/Architecture.Services/bin/Debug/netcoreapp2.2
+/Architecture.Services/obj
+/Architecture.Utility/bin/Debug/netcoreapp2.2
+/Architecture.Utility/obj
+/.vs/config/applicationhost.config
+/ArchitechtureProject/logs/UserActivity
+/Architecture.ILogger/bin/Debug/netcoreapp2.2
+/Architecture.ILogger/obj
