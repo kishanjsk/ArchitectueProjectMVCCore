@@ -3,7 +3,7 @@
 This architecture is made of several project with different purpose.
 Projects are as per below.
 
-1) ArchitechtureProject
+1) Architechture.Web
 2) Architecture.BusinessLogic
 3) Architecture.Data
 4) Architecture.Entities
@@ -14,7 +14,7 @@ Projects are as per below.
 9) Architecture.Utility
 10) Architecture.UnitTesting
 
-**1.**	**Architecture.Project**
+**1.**	**Architecture.Web**
 Maps to the layers that hold the Web, UI and Presenter concerns. In the context of our API, this means it accepts input in the form of http requests over the network (e.g., GET/POST/etc.) and returns its output as content formatted as JSON/HTML/XML, etc. The Presenters contain .NET framework-specific references and types, so they also live here as per The Dependency Rule we don't want to pass any of them inward.
 
 **2.**	**Architecture.BusinessLogic**
