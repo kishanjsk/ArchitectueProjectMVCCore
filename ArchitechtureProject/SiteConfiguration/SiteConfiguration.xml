@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CustomConfiguration>
   <CommonSettings>
-    <PasswordEncryptionSecurityKey>MEGNUSMINDS</PasswordEncryptionSecurityKey>
+    <PasswordEncryptionSecurityKey>ENCRYPTIONSECURITYKEY</PasswordEncryptionSecurityKey>
   </CommonSettings>
   <ErrorMessages>
     <Please_fill_mandatory_fields>

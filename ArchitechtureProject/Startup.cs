@@ -35,7 +35,7 @@ namespace Architechture.Web
                 options.MinimumSameSitePolicy = SameSiteMode.Strict;
             });
 
-            // SITE CONFIGURATION 
+            // SITE CONFIGURATION
             services.AddScoped<SiteConfiguration>();
 
             // REPOSITORIES
@@ -54,8 +54,7 @@ namespace Architechture.Web
             services.AddScoped<LogConstantFilter>();
             services.AddScoped<IActionFilter, RoleFilter>();
 
-
-            // FOR authentication 
+            // FOR authentication
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
@@ -81,10 +80,8 @@ namespace Architechture.Web
             //    options.SlidingExpiration = true;
             //});
 
-            var connection = @"Data Source=Server01,1983;Database=TBSAdmin;User ID=devteam;Password=devteam;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
-            services.AddDbContext<TBSAdminContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<AdminContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -120,7 +117,6 @@ namespace Architechture.Web
                    name: "default",
                    template: "{controller=Home}/{action=Index}/{id?}");
             });
-
         }
     }
 }

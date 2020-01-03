@@ -17,7 +17,7 @@ namespace Architecture.Repository
     {
         #region Fields
 
-        private readonly TBSAdminContext _context;
+        private readonly AdminContext _context;
 
         private DbSet<TEntity> _entities;
 
@@ -25,7 +25,7 @@ namespace Architecture.Repository
 
         #region Ctor
 
-        public EfRepository(TBSAdminContext context)
+        public EfRepository(AdminContext context)
         {
             this._context = context;
         }
@@ -74,7 +74,7 @@ namespace Architecture.Repository
         /// <param name="orderBy"></param>
         /// <param name="includeProperties"></param>
         /// <returns></returns>
-        public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "")
+        public IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "")
         {
             IQueryable<TEntity> query = GetEntities();
 
@@ -93,11 +93,11 @@ namespace Architecture.Repository
 
             if (orderBy != null)
             {
-                return orderBy(query).ToList();
+                return orderBy(query);
             }
             else
             {
-                return query.ToList();
+                return query;
             }
         }
         /// <summary>
@@ -106,9 +106,9 @@ namespace Architecture.Repository
         /// <param name="query"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public IEnumerable<TEntity> GetWithRawSql(string query, params object[] parameters)
+        public IQueryable<TEntity> GetWithRawSql(string query, params object[] parameters)
         {
-            return GetEntities().FromSql(query, parameters).ToList();
+            return GetEntities().FromSql(query, parameters);
         }
        
         /// <summary>

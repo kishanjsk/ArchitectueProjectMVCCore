@@ -63,7 +63,7 @@ namespace Architecture.Interface
         /// <param name="orderBy"></param>
         /// <param name="includeProperties"></param>
         /// <returns></returns>
-        IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "");
+        IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "");
 
         /// <summary>
         /// Get data from raw SQL
@@ -71,7 +71,7 @@ namespace Architecture.Interface
         /// <param name="query">QUERY </param>
         /// <param name="parameters">Param to send</param>
         /// <returns></returns>
-        IEnumerable<TEntity> GetWithRawSql(string query,params object[] parameters);
+        IQueryable<TEntity> GetWithRawSql(string query,params object[] parameters);
  
         #endregion
 

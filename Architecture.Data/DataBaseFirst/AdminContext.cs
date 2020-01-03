@@ -1,17 +1,15 @@
-﻿using System;
-using Architecture.DataBase.DatabaseFirst.Models;
+﻿using Architecture.DataBase.DatabaseFirst.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Architecture.DataBase.DatabaseFirst
 {
-    public partial class TBSAdminContext : DbContext
+    public partial class AdminContext : DbContext
     {
-        public TBSAdminContext()
+        public AdminContext()
         {
         }
 
-        public TBSAdminContext(DbContextOptions<TBSAdminContext> options)
+        public AdminContext(DbContextOptions<AdminContext> options)
             : base(options)
         {
         }
@@ -26,15 +24,6 @@ namespace Architecture.DataBase.DatabaseFirst
         public virtual DbSet<RoleModuleAction> RoleModuleAction { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<UserRoleModuleAction> UserRoleModuleAction { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=Server01,1983;Database=TBSAdmin;User ID=devteam;Password=devteam;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
