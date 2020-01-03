@@ -1,0 +1,10 @@
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.csprojAssemblyReference.cache
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.MvcApplicationPartsAssemblyInfo.cs
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.AssemblyInfoInputs.cache
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.AssemblyInfo.cs
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.TagHelpers.input.cache
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.TagHelpers.output.cache
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.dll
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.pdb
+D:\Projects\ArchitectueProjectMVCCore\ArchitechtureProject\obj\Debug\netcoreapp3.1\Architechture.Web.RazorCoreGenerate.cache

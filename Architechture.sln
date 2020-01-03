@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architechture.Web", "ArchitechtureProject\Architechture.Web.csproj", "{E206429C-53F3-4630-8DA0-F44901F36115}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architechture.Web", "Architechture.Web\Architechture.Web.csproj", "{E206429C-53F3-4630-8DA0-F44901F36115}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architecture.DataBase", "Architecture.Data\Architecture.DataBase.csproj", "{179DFB5C-F3F0-44D8-9083-ED9A629B1CAE}"
 EndProject
