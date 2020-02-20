@@ -49,7 +49,7 @@ namespace Architechture.Web.Controllers
                     return View("Index", model);
                 }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Users", new { area = "Admin" });
         }
         #endregion
 
