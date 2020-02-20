@@ -48,7 +48,7 @@ namespace Architecture.Repository
 
         public bool ValidateLastChanged(string lastChanged, string userName)
         {
-            return _users.Table.Any(x => x.EmailId == userName && x.UpdatedDate <= Convert.ToDateTime(lastChanged));
+            return _users.Table.Any(x => x.EmailId == userName && (x.UpdatedDate <= Convert.ToDateTime(lastChanged) || x.UpdatedDate == null));
         }
 
         public Users GetUsersByEmail(string userName)
