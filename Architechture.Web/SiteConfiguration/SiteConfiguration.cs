@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 
-namespace Architechture.Web.Configuration
+namespace Architecture.Web.Configuration
 {
     public class SiteConfiguration
     {

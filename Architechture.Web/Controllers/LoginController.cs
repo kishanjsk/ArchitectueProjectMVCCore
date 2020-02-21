@@ -1,4 +1,4 @@
-﻿using Architechture.Web.Configuration;
+﻿using Architecture.Web.Configuration;
 using Architecture.BusinessLogic;
 using Architecture.Entities;
 using Architecture.Utility;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Threading.Tasks;
 
-namespace Architechture.Web.Controllers
+namespace Architecture.Web.Controllers
 {
     public class LoginController : BaseController
     {

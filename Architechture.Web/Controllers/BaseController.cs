@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Architechture.Web.Configuration;
+using Architecture.Web.Configuration;
 using Architecture.BusinessLogic;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 
-namespace Architechture.Web.Controllers
+namespace Architecture.Web.Controllers
 {
     [ServiceFilter(typeof(LogConstantFilter))]
     [ServiceFilter(typeof(CustomExceptionFilterAttribute))]

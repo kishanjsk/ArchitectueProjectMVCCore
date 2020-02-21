@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Architechture.Web</title>
+    <title>@ViewData["Title"] - Architecture.Web</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/AdminTheme/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -50,9 +50,9 @@
                                 <!-- User image -->
                                 <li class="user-header">
                                     <img src="~/AdminTheme/NewFolder/user.png" class="img-circle" alt="User Image">
-
+                                    
                                     <p>
-                                           @User.Claims.FirstOrDefault(x => x.Type == Wellbeing.BusinessLogic.CustomClaimTypes.Email.ToString()).Value - @User.Claims.FirstOrDefault(x => x.Type == Wellbeing.BusinessLogic.CustomClaimTypes.RoleName.ToString()).Value
+                                        @User.Claims.FirstOrDefault(x => x.Type == Architecture.BusinessLogic.CustomClaimTypes.Email.ToString()).Value - @User.Claims.FirstOrDefault(x => x.Type == Architecture.BusinessLogic.CustomClaimTypes.RoleName.ToString()).Value
                                         <small>Member since Nov. 2012</small>
                                     </p>
                                 </li>
@@ -90,7 +90,7 @@
 
                 @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">*@
                 @*<div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Architechture.Web</a>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Architecture.Web</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -119,7 +119,7 @@
         </div>
         @*<footer class="border-top footer text-muted">
             <div class="container">
-                &copy; 2019 - Architechture.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                &copy; 2019 - Architecture.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
         </footer>*@
         <footer class="main-footer">

@@ -22,3 +22,6 @@
 /ArchitechtureProject/logs/UserActivity
 /Architecture.ILogger/bin/Debug
 /Architecture.ILogger/obj
+/Architechture.Web/bin
+/Architechture.Web/obj
+/Architechture.Web/logs

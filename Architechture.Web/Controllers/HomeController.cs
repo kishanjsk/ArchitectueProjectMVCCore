@@ -1,12 +1,12 @@
-﻿using Architechture.Web.Configuration;
-using Architechture.Web.Models;
+﻿using Architecture.Web.Configuration;
+using Architecture.Web.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace Architechture.Web.Controllers
+namespace Architecture.Web.Controllers
 {
     public class HomeController : BaseController
     {
