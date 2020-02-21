@@ -27,10 +27,8 @@ namespace Architechture.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> LogoutAsync()
         {
-
-
             await new CustomAuthenticationService().SignOutAsync(HttpContext);
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
