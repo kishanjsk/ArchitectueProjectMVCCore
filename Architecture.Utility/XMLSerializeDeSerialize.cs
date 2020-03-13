@@ -37,7 +37,6 @@ namespace Architecture.Utility
             }
         }
 
-
         /// <summary>
         /// De serializes an XML file into an object list
         /// </summary>
@@ -72,8 +71,6 @@ namespace Architecture.Utility
             }
             return objectOut;
         }
-
-
 
         /// <summary>
         /// XML Encode

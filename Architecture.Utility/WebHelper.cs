@@ -7,7 +7,7 @@ namespace Architecture.Utility
 {
     public class WebHelper
     { /// <summary>
-      /// Gets whether the request is made with AJAX 
+      /// Gets whether the request is made with AJAX
       /// </summary>
       /// <param name="request">HTTP request</param>
       /// <returns>Result</returns>
@@ -25,6 +25,7 @@ namespace Architecture.Utility
 
             return request.Headers["X-Requested-With"] == "XMLHttpRequest";
         }
+
         /// <summary>
         /// Get IP address from HTTP context
         /// </summary>
@@ -52,7 +53,7 @@ namespace Architecture.Utility
 
             //"TryParse" doesn't support IPv4 with port number
             if (IPAddress.TryParse(result ?? string.Empty, out var ip))
-                //IP address is valid 
+                //IP address is valid
                 result = ip.ToString();
             else if (!string.IsNullOrEmpty(result))
                 //remove port
@@ -60,6 +61,7 @@ namespace Architecture.Utility
 
             return result;
         }
+
         /// <summary>
         /// Check whether current HTTP request is available
         /// </summary>
@@ -81,6 +83,5 @@ namespace Architecture.Utility
 
             return true;
         }
-
     }
 }

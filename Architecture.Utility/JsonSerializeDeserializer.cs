@@ -1,8 +1,4 @@
-﻿
-using Newtonsoft.Json;
-using System;
-using System.Security.Cryptography;
-using System.Text;
+﻿using Newtonsoft.Json;
 
 namespace Architecture.Utility
 {
@@ -12,6 +8,7 @@ namespace Architecture.Utility
         {
             return JsonConvert.DeserializeObject<TEntity>(JsonStr);
         }
+
         public static string JsonString<TEntity>(TEntity obj)
         {
             return JsonConvert.SerializeObject(obj);

@@ -9,18 +9,18 @@ namespace Architecture.Utility
         private static string Encrypt(string toEncrypt, bool useHashing, string SecurityKey)
         {
             byte[] keyArray;
-            byte[] toEncryptArray = UTF8Encoding.UTF8.GetBytes(toEncrypt);
+            byte[] toEncryptArray = Encoding.UTF8.GetBytes(toEncrypt);
             string key = SecurityKey;
             //If hashing use get hash code regards to your key
             if (useHashing)
             {
                 MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                keyArray = hashmd5.ComputeHash(Encoding.UTF8.GetBytes(key));
                 hashmd5.Clear();
             }
             else
             {
-                keyArray = UTF8Encoding.UTF8.GetBytes(key);
+                keyArray = Encoding.UTF8.GetBytes(key);
             }
 
             TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
@@ -41,7 +41,6 @@ namespace Architecture.Utility
             return Convert.ToBase64String(resultArray, 0, resultArray.Length);
         }
 
-
         private static string Decrypt(string cipherString, bool useHashing, string SecurityKey)
         {
             byte[] keyArray;
@@ -53,14 +52,14 @@ namespace Architecture.Utility
             {
                 //if hashing was used get the hash code with regards to your key
                 MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                keyArray = hashmd5.ComputeHash(Encoding.UTF8.GetBytes(key));
 
                 hashmd5.Clear();
             }
             else
             {
                 //if hashing was not implemented get the byte code of the key
-                keyArray = UTF8Encoding.UTF8.GetBytes(key);
+                keyArray = Encoding.UTF8.GetBytes(key);
             }
 
             TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
@@ -72,19 +71,18 @@ namespace Architecture.Utility
             tdes.Padding = PaddingMode.PKCS7;
 
             ICryptoTransform cTransform = tdes.CreateDecryptor();
-            byte[] resultArray = cTransform.TransformFinalBlock
-                    (toEncryptArray, 0, toEncryptArray.Length);
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
             //Release resources held by TripleDes Encryptor
             tdes.Clear();
             //return the Clear decrypted TEXT
-            return UTF8Encoding.UTF8.GetString(resultArray);
+            return Encoding.UTF8.GetString(resultArray);
         }
-
 
         public static TEntity EncryptedJSONStringToObject<TEntity>(string JsonStr, string EncryptionSecurityKey)
         {
             return JsonSerializeDeserializer.JSONStringToObject<TEntity>(Decrypt(JsonStr, true, EncryptionSecurityKey));
         }
+
         public static string GetEncryptedJsonString<TEntity>(TEntity obj, string EncryptionSecurityKey)
         {
             return Encrypt(JsonSerializeDeserializer.JsonString<TEntity>(obj), true, EncryptionSecurityKey);

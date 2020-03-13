@@ -33,6 +33,5 @@ namespace Architecture.Utility
 
             return new SelectList(values, "Value", "Text", selectedValue);
         }
-
     }
 }
