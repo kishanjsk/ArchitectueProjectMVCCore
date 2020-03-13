@@ -1,4 +1,4 @@
-﻿using Architechture.Web.Configuration;
+﻿using Architecture.Web.Configuration;
 using Architecture.BusinessLogic;
 using Architecture.BusinessLogic.Authentication;
 using Architecture.DataBase.DatabaseFirst;
@@ -14,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Architechture.Web
+namespace Architecture.Web
 {
     public class Startup
     {

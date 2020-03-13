@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Architechture.Web.Controllers
+namespace Architecture.Web.Controllers
 {
     public class UsersController : Controller
     {

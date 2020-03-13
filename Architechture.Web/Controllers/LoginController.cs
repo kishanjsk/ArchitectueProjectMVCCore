@@ -1,4 +1,4 @@
-﻿using Architechture.Web.Configuration;
+﻿using Architecture.Web.Configuration;
 using Architecture.BusinessLogic;
 using Architecture.Entities;
 using Architecture.Utility;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Threading.Tasks;
 
-namespace Architechture.Web.Controllers
+namespace Architecture.Web.Controllers
 {
     public class LoginController : BaseController
     {
@@ -27,10 +27,8 @@ namespace Architechture.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> LogoutAsync()
         {
-
-
             await new CustomAuthenticationService().SignOutAsync(HttpContext);
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -49,7 +47,7 @@ namespace Architechture.Web.Controllers
                     return View("Index", model);
                 }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Users", new { area = "Admin" });
         }
         #endregion
 

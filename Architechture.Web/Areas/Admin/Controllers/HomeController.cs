@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Architecture.BusinessLogic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Architechture.Web.Areas.Admin.Controllers
+namespace Architecture.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class HomeController : Controller

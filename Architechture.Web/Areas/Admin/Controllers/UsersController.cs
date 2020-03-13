@@ -1,5 +1,5 @@
-﻿using Architechture.Web.Configuration;
-using Architechture.Web.Controllers;
+﻿using Architecture.Web.Configuration;
+using Architecture.Web.Controllers;
 using Architecture.BusinessLogic;
 using Architecture.BusinessLogic.Authentication;
 using Architecture.Entities;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace Architechture.Web.Areas.Admin.Controllers
+namespace Architecture.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize]
