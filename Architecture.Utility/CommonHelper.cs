@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Architecture.Utility
@@ -11,7 +10,7 @@ namespace Architecture.Utility
     /// <summary>
     /// Represents a common helper
     /// </summary>
-    /// 
+    ///
     public partial class CommonHelper
     {
         private static readonly Regex _emailRegex;
@@ -79,6 +78,7 @@ namespace Architecture.Utility
             new RNGCryptoServiceProvider().GetBytes(randomNumberBuffer);
             return new Random(BitConverter.ToInt32(randomNumberBuffer, 0)).Next(min, max);
         }
+
         /// <summary>
         /// Generates Dynamic ID
         /// </summary>

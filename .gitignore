@@ -3,8 +3,8 @@
 ################################################################################
 
 /.vs
-/ArchitechtureProject/bin/Debug
-/ArchitechtureProject/obj
+/Architechture.Web/bin/Debug
+/Architechture.Web/obj
 /Architecture.BusinessLogic/bin/Debug
 /Architecture.BusinessLogic/obj
 /Architecture.Data/bin/Debug
@@ -19,7 +19,7 @@
 /Architecture.Services/obj
 /Architecture.Utility/bin/Debug
 /Architecture.Utility/obj
-/ArchitechtureProject/logs/UserActivity
+/Architechture.Web/logs/UserActivity
 /Architecture.ILogger/bin/Debug
 /Architecture.ILogger/obj
 /Architechture.Web/bin
