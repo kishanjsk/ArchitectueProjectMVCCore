@@ -17,7 +17,7 @@ namespace Architecture.Utility
         /// <param name="fileName"></param>
         public static void SerializeObject<T>(T serializableObject, string fileName)
         {
-            if (serializableObject == null) { return; }
+            if (serializableObject.CheckIsNull()) { return; }
             try
             {
                 XmlDocument xmlDocument = new XmlDocument();
@@ -37,7 +37,6 @@ namespace Architecture.Utility
             }
         }
 
-
         /// <summary>
         /// De serializes an XML file into an object list
         /// </summary>
@@ -46,7 +45,7 @@ namespace Architecture.Utility
         /// <returns></returns>
         public static T DeSerializeObject<T>(string fileName)
         {
-            if (string.IsNullOrEmpty(fileName)) { return default(T); }
+            if (fileName.CheckIsNull()) { return default(T); }
             T objectOut = default(T);
             try
             {
@@ -73,8 +72,6 @@ namespace Architecture.Utility
             return objectOut;
         }
 
-
-
         /// <summary>
         /// XML Encode
         /// </summary>
@@ -82,7 +79,7 @@ namespace Architecture.Utility
         /// <returns>Encoded string</returns>
         public static string XmlEncode(string str)
         {
-            if (str == null)
+            if (str.CheckIsNull())
                 return null;
             str = Regex.Replace(str, @"[^\u0009\u000A\u000D\u0020-\uD7FF\uE000-\uFFFD]", string.Empty, RegexOptions.Compiled);
             return XmlEncodeAsIs(str);
@@ -95,7 +92,7 @@ namespace Architecture.Utility
         /// <returns>Encoded string</returns>
         public static string XmlEncodeAsIs(string str)
         {
-            if (str == null)
+            if (str.CheckIsNull())
                 return null;
             using (var sw = new StringWriter())
             using (var xwr = new XmlTextWriter(sw))
@@ -112,7 +109,7 @@ namespace Architecture.Utility
         /// <returns>Encoded attribute</returns>
         public static string XmlEncodeAttribute(string str)
         {
-            if (str == null)
+            if (str.CheckIsNull())
                 return null;
             str = Regex.Replace(str, @"[^\u0009\u000A\u000D\u0020-\uD7FF\uE000-\uFFFD]", string.Empty, RegexOptions.Compiled);
             return XmlEncodeAttributeAsIs(str);

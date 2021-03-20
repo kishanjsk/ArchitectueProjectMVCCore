@@ -7,24 +7,25 @@ namespace Architecture.Utility
 {
     public class WebHelper
     { /// <summary>
-      /// Gets whether the request is made with AJAX 
+      /// Gets whether the request is made with AJAX
       /// </summary>
       /// <param name="request">HTTP request</param>
       /// <returns>Result</returns>
         public virtual bool IsAjaxRequest(HttpRequest request)
         {
-            if (request == null)
+            if (request.CheckIsNull())
             {
                 throw new ArgumentNullException(nameof(request));
             }
 
-            if (request.Headers == null)
+            if (request.Headers.CheckIsNull())
             {
                 return false;
             }
 
             return request.Headers["X-Requested-With"] == "XMLHttpRequest";
         }
+
         /// <summary>
         /// Get IP address from HTTP context
         /// </summary>
@@ -38,7 +39,7 @@ namespace Architecture.Utility
             try
             {
                 //if this header not exists try get connection remote IP address
-                if (string.IsNullOrEmpty(result) && httpContext.Connection.RemoteIpAddress != null)
+                if (result.CheckIsNull() && !httpContext.Connection.RemoteIpAddress.CheckIsNull())
                     result = httpContext.Connection.RemoteIpAddress.ToString();
             }
             catch
@@ -47,31 +48,32 @@ namespace Architecture.Utility
             }
 
             //some of the validation
-            if (result != null && result.Equals(IPAddress.IPv6Loopback.ToString(), StringComparison.InvariantCultureIgnoreCase))
+            if (!result.CheckIsNull() && result.Equals(IPAddress.IPv6Loopback.ToString(), StringComparison.InvariantCultureIgnoreCase))
                 result = IPAddress.Loopback.ToString();
 
             //"TryParse" doesn't support IPv4 with port number
             if (IPAddress.TryParse(result ?? string.Empty, out var ip))
-                //IP address is valid 
+                //IP address is valid
                 result = ip.ToString();
-            else if (!string.IsNullOrEmpty(result))
+            else if (!result.CheckIsNull())
                 //remove port
                 result = result.Split(':').FirstOrDefault();
 
             return result;
         }
+
         /// <summary>
         /// Check whether current HTTP request is available
         /// </summary>
         /// <returns>True if available; otherwise false</returns>
         protected virtual bool IsRequestAvailable(HttpContext httpContext)
         {
-            if (httpContext == null)
+            if (httpContext.CheckIsNull())
                 return false;
 
             try
             {
-                if (httpContext.Request == null)
+                if (httpContext.Request.CheckIsNull())
                     return false;
             }
             catch (Exception)
@@ -81,6 +83,5 @@ namespace Architecture.Utility
 
             return true;
         }
-
     }
 }

@@ -14,12 +14,11 @@ namespace Architecture.Utility
     /// 
     public partial class CommonHelper
     {
-
         private static readonly Regex _emailRegex;
+
         //we use EmailValidator from FluentValidation. So let's keep them sync - https://github.com/JeremySkinner/FluentValidation/blob/master/src/FluentValidation/Validators/EmailValidator.cs
         private const string _emailExpression = @"^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-||_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+([a-z]+|\d|-|\.{0,1}|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])?([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$";
 
-        
         #region Ctor
 
         static CommonHelper()
@@ -27,7 +26,7 @@ namespace Architecture.Utility
             _emailRegex = new Regex(_emailExpression, RegexOptions.IgnoreCase);
         }
 
-        #endregion
+        #endregion Ctor
 
         /// <summary>
         /// Verifies that a string is in valid e-mail format
@@ -36,7 +35,7 @@ namespace Architecture.Utility
         /// <returns>true if the string is a valid e-mail address and false if it's not</returns>
         public static bool IsValidEmail(string email)
         {
-            if (string.IsNullOrEmpty(email))
+            if (email.CheckIsNull())
                 return false;
 
             email = email.Trim();
@@ -53,6 +52,7 @@ namespace Architecture.Utility
         {
             return IPAddress.TryParse(ipAddress, out IPAddress _);
         }
+
         /// <summary>
         /// Generate random digit code
         /// </summary>
@@ -73,12 +73,35 @@ namespace Architecture.Utility
         /// <param name="min">Minimum number</param>
         /// <param name="max">Maximum number</param>
         /// <returns>Result</returns>
-        public static int GenerateRandomInteger(int min = 0, int max = int.MaxValue)
+        public static int GenerateRandomInteger(int min = 0, int max = 10)
         {
             var randomNumberBuffer = new byte[10];
             new RNGCryptoServiceProvider().GetBytes(randomNumberBuffer);
             return new Random(BitConverter.ToInt32(randomNumberBuffer, 0)).Next(min, max);
         }
+        /// <summary>
+        /// Generates Dynamic ID
+        /// </summary>
+        /// <param name="AppendAfter"></param>
+        /// <param name="charCount"></param>
+        /// <returns></returns>
+        public static string CreateDynamicId(string AppendAfter, int charCount)
+        {
+            var parcelId = new StringBuilder();
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var stringChars = new char[charCount];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            parcelId.Append(AppendAfter);
+            parcelId.Append(stringChars);
+            return parcelId.ToString();
+        }
+
         /// <summary>
         /// Indicates whether the specified strings are null or empty strings
         /// </summary>
@@ -88,6 +111,7 @@ namespace Architecture.Utility
         {
             return stringsToValidate.Any(string.IsNullOrEmpty);
         }
+
         /// <summary>
         /// Compare two arrays
         /// </summary>
@@ -101,7 +125,7 @@ namespace Architecture.Utility
             if (ReferenceEquals(a1, a2))
                 return true;
 
-            if (a1 == null || a2 == null)
+            if (a1.CheckIsNull() || a2.CheckIsNull())
                 return false;
 
             if (a1.Length != a2.Length)
@@ -111,5 +135,16 @@ namespace Architecture.Utility
             return !a1.Where((t, i) => !comparer.Equals(t, a2[i])).Any();
         }
 
+        public static int ConvertToInt(object s)
+        {
+            try
+            {
+                return Convert.ToInt32(s);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }

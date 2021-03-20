@@ -27,7 +27,7 @@ namespace Architecture.BusinessLogic
             _logEntryBL = logEntryBL;
         }
 
-        public override void OnException(ExceptionContext context)
+        public override void OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext context)
         {
             if (!_hostingEnvironment.IsDevelopment())
             {

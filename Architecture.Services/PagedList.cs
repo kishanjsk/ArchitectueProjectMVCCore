@@ -28,6 +28,7 @@ namespace Architecture.Services
                 TotalPages++;
 
             PageSize = pageSize;
+            pageIndex--;
             PageIndex = pageIndex;
             if (getOnlyTotalCount)
                 return;
@@ -49,7 +50,7 @@ namespace Architecture.Services
                 TotalPages++;
 
             PageSize = pageSize;
-            PageIndex = pageIndex;
+            PageIndex = pageIndex--;
             AddRange(source.Skip(pageIndex * pageSize).Take(pageSize).ToList());
         }
 
@@ -69,7 +70,7 @@ namespace Architecture.Services
                 TotalPages++;
 
             PageSize = pageSize;
-            PageIndex = pageIndex;
+            PageIndex = pageIndex--;
             AddRange(source);
         }
 
@@ -102,5 +103,21 @@ namespace Architecture.Services
         /// Has next page
         /// </summary>
         public bool HasNextPage => PageIndex + 1 < TotalPages;
+    }
+    public static class PagingLinqExtensions
+    {
+        public static PagedList<T> ToPagedList<T>(this IQueryable<T> allItems, int? pageIndex, int pageSize)
+        {
+            return ToPagedList<T>(allItems, pageIndex, pageSize, string.Empty);
+        }
+        public static PagedList<T> ToPagedList<T>(this IQueryable<T> allItems, int? pageIndex, int pageSize, string sort)
+        {
+            var truePageIndex = pageIndex ?? 0;
+            //var itemIndex = truePageIndex * pageSize;
+            //var pageOfItems = allItems.Skip(itemIndex).Take(pageSize);
+
+            var totalItemCount = allItems.Count();
+            return new PagedList<T>(allItems, truePageIndex, pageSize);
+        }
     }
 }

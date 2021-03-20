@@ -22,7 +22,7 @@ namespace Architecture.Utility
 
             if (response.DidError)
                 status = HttpStatusCode.InternalServerError;
-            else if (response.Model == null)
+            else if (response.Result == null)
                 status = HttpStatusCode.NotFound;
 
             return new ObjectResult(response)
@@ -37,7 +37,7 @@ namespace Architecture.Utility
 
             if (response.DidError)
                 status = HttpStatusCode.InternalServerError;
-            else if (response.Model == null || response.Model.Count() == 0)
+            else if (response.Result == null || response.Result.Count() == 0)
                 status = HttpStatusCode.NoContent;
 
             return new ObjectResult(response)

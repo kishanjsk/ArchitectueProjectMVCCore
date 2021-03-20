@@ -108,7 +108,7 @@ namespace Architecture.Repository
         /// <returns></returns>
         public IQueryable<TEntity> GetWithRawSql(string query, params object[] parameters)
         {
-            return GetEntities().FromSql(query, parameters);
+            return GetEntities().FromSqlRaw(query, parameters);
         }
        
         /// <summary>
