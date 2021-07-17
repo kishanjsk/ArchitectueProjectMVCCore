@@ -25,3 +25,6 @@
 /Architechture.Web/bin
 /Architechture.Web/obj
 /Architechture.Web/logs
+/ArchitechtureProject/bin/Debug/netcoreapp2.2
+/ArchitechtureProject/logs/UserActivity
+/ArchitechtureProject/obj
